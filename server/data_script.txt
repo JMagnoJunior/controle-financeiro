@@ -1,0 +1,4 @@
+INSERT INTO Pessoa(nome) VALUES("Cheetos");
+INSERT INTO Classificacao_Do_Tipo(descricao) VALUES("Habitação");
+INSERT INTO Tipo_Do_Gasto(descricao,classificacao_id) VALUES("Aluguel",(SELECT ID FROM Classificacao_Do_Tipo WHERE descricao = "Habitação"));
+INSERT INTO Gasto(valor, motivo, tipo_id, pessoa_id) VALUES(10.01, "teste", (SELECT ID FROM Tipo_Do_Gasto WHERE descricao = "Aluguel"), (SELECT ID FROM Pessoa WHERE nome = "Cheetos"));
