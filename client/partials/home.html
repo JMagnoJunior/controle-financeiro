@@ -1,0 +1,42 @@
+<div class="table-responsive">
+<table class="table table-striped table-condensed table-hover">
+    <thead>
+        <tr>
+            <th class="pessoa" custom-sort order="'pessoa'" sort="sort" func="search">Pessoa</th>
+            <th>Motivo</th>
+            <th class="valor" custom-sort order="'valor'" sort="sort" func="search">Valor</th>
+            <th class="data" custom-sort order="'data'" sort="sort" func="search">Data</th>
+        </tr>
+    </thead>
+
+      <tbody>
+    <tr  ng-repeat="gasto in pagedItems[currentPage]" >
+        <td> {{ gasto.pessoa.nome }} </td>
+        <td> {{ gasto.motivo }} </td>
+        <td> {{ gasto.valor }} </td>
+        <td> {{ gasto.data }} </td>
+    </tr>
+</tbody>
+</table>
+</div>
+
+<ul class="pagination">
+    <li ng-class="{disabled: currentPage == 0}">
+    <a href ng-click="prevPage()">« Prev</a>
+    </li>
+
+    <li ng-repeat="n in rangeTotalPaginas() "
+        ng-class="{active: n == currentPage}"
+        ng-click="setPage()">
+    <a href ng-bind="n + 1">1</a>
+    </li>
+
+    <li ng-class="{disabled: (currentPage) == pagedItems.length - 1}">
+    <a href ng-click="nextPage()">Next »</a>
+    </li>
+</ul>
+
+<pre>pagedItems.length: {{ pagedItems.length|json }}</pre>
+<pre>currentPage: {{ currentPage|json }}</pre>
+<pre>sort: {{ sort|json }}</pre>
+<pre>filtered items: {{ filteredItems }}</pre>

@@ -5,7 +5,7 @@ from flask_restful import marshal_with, marshal
 
 from app.server import api, db  # , flask_bcrypt, auth
 from app.models import Gasto
-from serialize import gasto_json
+from serialize import gasto_json, menu_json
 
 
 class GastoListView(restful.Resource):
@@ -37,5 +37,13 @@ class GastoView(restful.Resource):
         return gasto
 
 
+class MenuList(restful.Resource):
+    @marshal_with(menu_json)
+    def get(self):
+
+        return [{'nome': 'gastos'}, {'nome': 'relatorios'}]
+
 api.add_resource(GastoListView, '/api/v1/gastos')
 api.add_resource(GastoView, '/api/v1/gastos/<int:id>')
+
+api.add_resource(MenuList, '/api/v1/menus')

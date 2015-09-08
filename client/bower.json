@@ -13,10 +13,11 @@
     "tests"
   ],
   "dependencies": {
-    "angular-route": "~1.2.21",
     "bootstrap": "~3.2.0",
-    "restangular": "~1.4.0",
-    "angularjs": "~1.2.21",
-    "angular-local-storage": "~0.0.7"
+    "restangular": "~1.4.x",
+    "angularjs": "~1.4.x",
+    "angular-local-storage": "~0.0.7",
+    "angular-route": "~1.4.x",
+    "angular-resource": "~1.4.x"
   }
 }

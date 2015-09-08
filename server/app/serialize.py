@@ -24,3 +24,8 @@ gasto_json = {
     'pessoa': fields.Nested(pessoa_json),
     'tipo': fields.Nested(tipo_do_gasto_json),
 }
+
+
+menu_json = {
+    'nome': fields.String
+}

@@ -17,7 +17,6 @@ app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + \
 
 db = SQLAlchemy(app)
 
-
 errors = {
     'Exception': {
         'message': "Erro Desconhecido",
@@ -31,17 +30,13 @@ api = Api(app, errors=errors)
 # auth = HTTPBasicAuth()
 
 
-
 @app.after_request
 def after_request(response):
-
     response.headers.add('Access-Control-Allow-Origin', '*')
     response.headers.add('Access-Control-Allow-Headers',
                          'Content-type,Authorization')
     response.headers.add('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE')
     return response
-
-
 
 
 import views
