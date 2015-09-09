@@ -1,24 +1,30 @@
 <div class="table-responsive">
-<table class="table table-striped table-condensed table-hover">
-    <thead>
-        <tr>
-            <th class="pessoa" custom-sort order="'pessoa'" sort="sort" func="search">Pessoa</th>
-            <th>Motivo</th>
-            <th class="valor" custom-sort order="'valor'" sort="sort" func="search">Valor</th>
-            <th class="data" custom-sort order="'data'" sort="sort" func="search">Data</th>
-        </tr>
-    </thead>
+    <table class="table table-striped table-condensed table-hover">
+        <thead>
+            <tr>
+                <th class="editar" >Editar</th>
+                <th class="pessoa" custom-sort order="'pessoa'" sort="sort" func="search">Pessoa</th>
+                <th>Motivo</th>
+                <th class="valor" custom-sort order="'valor'" sort="sort" func="search">Valor</th>
+                <th class="data" custom-sort order="'data'" sort="sort" func="search">Data</th>
+            </tr>
+        </thead>
 
-      <tbody>
-    <tr  ng-repeat="gasto in pagedItems[currentPage]" >
-        <td> {{ gasto.pessoa.nome }} </td>
-        <td> {{ gasto.motivo }} </td>
-        <td> {{ gasto.valor }} </td>
-        <td> {{ gasto.data }} </td>
-    </tr>
-</tbody>
-</table>
+        <tbody>
+            <tr  ng-repeat="gasto in pagedItems[currentPage]" ng-click="linha_selecionada = !linha_selecionada; add_gastos_editados(gasto) " >
+
+
+                <td> {{ gasto.pessoa.nome }} </td>
+                <td> <input  ng-disabled="!linha_selecionada" value="{{ gasto.motivo }}"> </input> </td>
+                <td> <input ng-disabled="!linha_selecionada" value="{{ gasto.valor }}"> </input> </td>
+                <td> <input ng-disabled="!linha_selecionada" value="{{ gasto.data }}"> </input> </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <button ng-click="gravar_alteracoes()" >Salvar</button>
 </div>
+
 
 <ul class="pagination">
     <li ng-class="{disabled: currentPage == 0}">

@@ -13,15 +13,13 @@ controlefinanceiroCntrl.controller('GastosListCtrl', ['$scope','$filter','Contro
               reverse : false
             };
 
-
-
             $scope.gastos = ControleFinanceiroService.query(
                 function(gastos){
 
 
                     $scope.groupedItems = [];
                     $scope.currentPage  = 0;
-                    $scope.itemsPerPage = 5;
+                    $scope.itemsPerPage = 3;
 
                     $scope.filteredItems = [];
                     $scope.pagedItems = [];
@@ -31,7 +29,7 @@ controlefinanceiroCntrl.controller('GastosListCtrl', ['$scope','$filter','Contro
                     // init the filtered items
                     $scope.search = function () {
                         console.log($scope.sort.sortingOrder)
-                        
+
                         angular.forEach($scope.items, function (i) {
                            i.valor = parseFloat(i.valor);
                         });
@@ -91,7 +89,19 @@ controlefinanceiroCntrl.controller('GastosListCtrl', ['$scope','$filter','Contro
                      };
 
         });
+        $scope.gastos_edit_list = []
+        $scope.gravar_alteracoes = function(){
+            
+        }
 
+        $scope.add_gastos_editados = function(gasto){
+            index = $scope.gastos_edit_list.indexOf(gasto);
+            if (index == -1){
+                $scope.gastos_edit_list.push(gasto);
+            }else{
+                $scope.gastos_edit_list.splice(index, 1);
+            }
 
+        }
     }
 ]);
