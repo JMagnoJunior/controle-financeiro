@@ -11,18 +11,19 @@
         </thead>
 
         <tbody>
-            <tr  ng-repeat="gasto in pagedItems[currentPage]" ng-click="linha_selecionada = !linha_selecionada; add_gastos_editados(gasto) " >
+            <tr  ng-repeat="gasto in pagedItems[currentPage]" ng-click="selecionar(gasto); add_gastos_editados(gasto) " >
 
-
+                <td> </td>
                 <td> {{ gasto.pessoa.nome }} </td>
-                <td> <input  ng-disabled="!linha_selecionada" value="{{ gasto.motivo }}"> </input> </td>
-                <td> <input ng-disabled="!linha_selecionada" value="{{ gasto.valor }}"> </input> </td>
-                <td> <input ng-disabled="!linha_selecionada" value="{{ gasto.data }}"> </input> </td>
+                <td> <input ng-disabled="!gasto.selecionado" value="{{ gasto.motivo }}" ng-model="gasto.motivo" ng-change="campo_editado(gasto.id,'motivo',gasto.motivo)" > </input> </td>
+                <td> <input ng-disabled="!gasto.selecionado" value="{{ gasto.valor }}" ng-model="gasto.valor" ng-change="campo_editado(gasto.id,'valor',gasto.valor)"> </input> </td>
+                <td> <input ng-disabled="!gasto.selecionado" value="{{ gasto.data }}" ng-model="gasto.data" ng-change="campo_editado(gasto.id,'data',gasto.data)"> </input> </td>
             </tr>
         </tbody>
     </table>
 
-    <button ng-click="gravar_alteracoes()" >Salvar</button>
+    <button ng-disabled="!ocorreu_edicao" ng-click="gravar_alteracoes()" class="btn btn-default pull-right" >Gravar</button>
+    <button ng-click="go('/incluir_gastos')" class="btn btn-default pull-right" >Incluir</button>
 </div>
 
 

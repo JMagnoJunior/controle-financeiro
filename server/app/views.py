@@ -12,7 +12,6 @@ class GastoListView(restful.Resource):
 
     @marshal_with(gasto_json)
     def post(self):
-        raise Exception
         valor, data = request.form["valor"], request.form["data"]
         motivo, cod_tipo = request.form["motivo"], request.form["tipo"]
         cod_pessoa = request.form["pessoa"]
@@ -35,6 +34,15 @@ class GastoView(restful.Resource):
     def get(self, id):
         gasto = Gasto.query.filter_by(id=id).first()
         return gasto
+
+    @marshal_with(gasto_json)
+    def patch(self, id):
+        gasto = Gasto.query.filter_by(id=id).first()
+        for campo_editado in request.get_json():
+            print campo_editado
+            for key, val in campo_editado.items():
+                setattr(gasto, key, val)
+        db.session.commit()
 
 
 class MenuList(restful.Resource):

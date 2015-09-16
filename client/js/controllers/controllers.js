@@ -1,4 +1,4 @@
-var controlefinanceiroCntrl = angular.module('controlefinanceiroController', ['controlefinanceiroService']);
+// var controlefinanceiroCntrl = angular.module('controlefinanceiroController', ['controlefinanceiroService']);
 
 controlefinanceiroCntrl.controller('MenuCntrl',['$scope','MenuService',
     function($scope, MenuService){
@@ -91,7 +91,7 @@ controlefinanceiroCntrl.controller('GastosListCtrl', ['$scope','$filter','Contro
         });
         $scope.gastos_edit_list = []
         $scope.gravar_alteracoes = function(){
-            
+
         }
 
         $scope.add_gastos_editados = function(gasto){
@@ -101,6 +101,9 @@ controlefinanceiroCntrl.controller('GastosListCtrl', ['$scope','$filter','Contro
             }else{
                 $scope.gastos_edit_list.splice(index, 1);
             }
+
+        }
+        $scope.campo_editado = function(id,campo){
 
         }
     }

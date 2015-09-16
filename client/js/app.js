@@ -1,9 +1,11 @@
 
 var app = angular.module('controlefinanceiroApp', [
       'ngRoute',
-      'controlefinanceiroController',
-      'controlefinanceiroDirective',
-      'controlefinanceiroService'
+    //   'controlefinanceiroController',
+      'tabelaGastosController',
+      'inclusaoGastosController',
+    //   'controlefinanceiroDirective',
+    //   'controlefinanceiroService'
 ]);
 
 app.config(['$routeProvider',
@@ -12,7 +14,13 @@ app.config(['$routeProvider',
     $routeProvider.
       when('/', {
         templateUrl: 'partials/home.html',
-        controller:'GastosListCtrl'
+        // controller:'GastosListCtrl'
+        controller:'TabelaGastosCntrl'
+      }).
+      when('/incluir_gastos', {
+        templateUrl: 'partials/incluir_gastos.html',
+        // controller:'GastosListCtrl'
+        controller:'InclusaoGastosCntrl'
       }).
       otherwise({
         redirectTo: '/'

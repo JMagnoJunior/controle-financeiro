@@ -30,6 +30,7 @@ class Gasto(db.Model):
     @data.setter
     def data(self, valor):
         import datetime
+        print valor
         dia = int(valor.split("/")[0])
         mes = int(valor.split("/")[1])
         ano = int(valor.split("/")[2])

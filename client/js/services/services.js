@@ -1,5 +1,5 @@
 
-var controlefinanceiroService = angular.module('controlefinanceiroService',['ngResource'])
+// var controlefinanceiroService = angular.module('controlefinanceiroService',['ngResource'])
 
 controlefinanceiroService.factory('MenuService', ['$resource',
   function($resource){

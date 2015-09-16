@@ -1,4 +1,4 @@
-var controlefinanceiroDirective = angular.module('controlefinanceiroDirective',['controlefinanceiroController'])
+// var controlefinanceiroDirective = angular.module('controlefinanceiroDirective',['controlefinanceiroController'])
 
 controlefinanceiroDirective.directive("customSort",[
 function() {

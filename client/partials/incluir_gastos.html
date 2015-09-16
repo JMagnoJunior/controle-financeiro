@@ -1,0 +1,27 @@
+<div class="table-responsive">
+    <table class="table table-striped table-condensed table-hover">
+        <thead>
+            <tr>
+                <th class="editar" >Editar</th>
+                <th class="pessoa" >Pessoa</th>
+                <th>Motivo</th>
+                <th class="valor" >Valor</th>
+                <th class="data" >Data</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr  ng-repeat="n in range(total_paginas)" >
+
+                <td> </td>
+                <td> </td>
+                <td> <input ng-model="gastos[n].pessoa" > </input> </td>
+                <td> <input ng-model="gastos[n].valor" ></input> </td>
+                <td> <input ng-blur="add_linha(n)" ng-model="gastos[n].data" > </input> </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <button ng-click="incluir()" class="btn btn-default pull-right" >Gravar</button>
+{{gastos[0]}}
+</div>

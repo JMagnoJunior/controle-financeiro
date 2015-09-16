@@ -18,6 +18,8 @@
     "angularjs": "~1.4.x",
     "angular-local-storage": "~0.0.7",
     "angular-route": "~1.4.x",
-    "angular-resource": "~1.4.x"
+    "angular-resource": "~1.4.x",
+    "restangular": "~1.5.x",
+    "underscore": "~1.8.x"
   }
 }
